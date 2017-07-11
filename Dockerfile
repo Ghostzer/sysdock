@@ -10,6 +10,6 @@ RUN git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt --dept
 
 RUN apache2ctl -D BACKGROUND
 
-EXPOSE 8080
+EXPOSE 8080 443
 
 CMD ["apache2ctl", "-D", "FOREGROUND"]
