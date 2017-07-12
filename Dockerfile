@@ -4,7 +4,9 @@ RUN a2enmod rewrite
 
 WORKDIR /opt
 
-RUN apt-get update && apt-get install -y git
+RUN apt-get update && apt-get install -y \
+	git \
+	cron
 
 RUN git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt --depth=1
 
