@@ -2,6 +2,7 @@ FROM merorafael/php-apache
  
 RUN a2enmod rewrite
 RUN a2enmod ssl
+RUN a2enmod proxy_http
 
 WORKDIR /opt
 
@@ -12,6 +13,8 @@ RUN apt-get update && apt-get install -y \
 RUN git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt --depth=1
 
 RUN wget -O -  https://get.acme.sh | sh
+
+RUN rm -rf /etc/apache2/sites-available/*
 
 RUN apache2ctl -D BACKGROUND
 
