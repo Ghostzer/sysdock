@@ -2,6 +2,7 @@ FROM merorafael/php-apache
  
 RUN a2enmod rewrite
 RUN a2enmod ssl
+RUN a2enmod proxy
 RUN a2enmod proxy_http
 
 WORKDIR /opt
@@ -14,12 +15,10 @@ RUN git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt --dept
 
 RUN wget -O -  https://get.acme.sh | sh
 
-RUN rm -rf /etc/apache2/sites-available/*
-
 RUN apache2ctl -D BACKGROUND
 
 EXPOSE 8080 443
 
 CMD ["apache2ctl", "-D", "FOREGROUND"]
 
-
+RUN rm -rf /etc/apache2/sites-available/*
