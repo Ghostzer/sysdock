@@ -1,6 +1,9 @@
 FROM merorafael/php-apache
  
 RUN a2enmod rewrite
+RUN a2enmod ssl
+
+rm -rf /etc/apache2/sites-available/*
 
 WORKDIR /opt
 
