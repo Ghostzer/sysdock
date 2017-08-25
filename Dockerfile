@@ -20,5 +20,3 @@ RUN apache2ctl -D BACKGROUND
 EXPOSE 8080 443
 
 CMD ["apache2ctl", "-D", "FOREGROUND"]
-
-RUN rm -rf /etc/apache2/sites-available/*
