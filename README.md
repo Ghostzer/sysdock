@@ -2,6 +2,7 @@ Debian 8
 PHP 7.1.1  
 Apache/2.4.10  
 Let’s Encrypt  
+ACME  
 
 Document root : /var/www/html 
 
@@ -48,7 +49,7 @@ Document root : /var/www/html
 - Unzip 
 - Cron
 
-## Install the https certificate
+## Install the https certificate with Let's Encrypt
 It is important to expose port 80 and 443, because the Let's Encrypt Server will try to find their ports for verifying certificates.
 
 Now log in to the running container  
@@ -56,6 +57,5 @@ Now log in to the running container
 And install the https certificate  
 `/opt/letsencrypt/letsencrypt-auto --apache --email your@email.org --agree-tos -d yourwebsite.org`  
 
-## Redirecting
-If you want to use another port that 443 for https (like 8080), you can bind like this :  
-`docker run -p 80:80 -p 8080:443 -p 443:443`
+## Install the https certificate with ACME
+https://github.com/Neilpang/acme.sh
