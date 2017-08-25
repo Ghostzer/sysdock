@@ -11,6 +11,8 @@ RUN apt-get update && apt-get install -y \
 
 RUN git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt --depth=1
 
+RUN wget -O -  https://get.acme.sh | sh
+
 RUN apache2ctl -D BACKGROUND
 
 EXPOSE 8080 443
