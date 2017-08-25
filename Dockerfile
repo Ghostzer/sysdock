@@ -3,8 +3,6 @@ FROM merorafael/php-apache
 RUN a2enmod rewrite
 RUN a2enmod ssl
 
-RUN rm -rf /etc/apache2/sites-available/*
-
 WORKDIR /opt
 
 RUN apt-get update && apt-get install -y \
@@ -18,3 +16,5 @@ RUN apache2ctl -D BACKGROUND
 EXPOSE 8080 443
 
 CMD ["apache2ctl", "-D", "FOREGROUND"]
+
+
